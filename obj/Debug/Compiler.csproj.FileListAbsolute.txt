@@ -1,0 +1,16 @@
+C:\GIT\Compiler\Compiler\bin\Debug\Compiler.exe.config
+C:\GIT\Compiler\Compiler\bin\Debug\Compiler.exe
+C:\GIT\Compiler\Compiler\bin\Debug\Compiler.pdb
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.csprojResolveAssemblyReference.cache
+C:\GIT\Compiler\Compiler\obj\Debug\MainWindow.g.cs
+C:\GIT\Compiler\Compiler\obj\Debug\App.g.cs
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler_MarkupCompile.cache
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler_MarkupCompile.lref
+C:\GIT\Compiler\Compiler\obj\Debug\MainWindow.baml
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.g.resources
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.Properties.Resources.resources
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.csproj.GenerateResource.Cache
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.exe
+C:\GIT\Compiler\Compiler\obj\Debug\Compiler.pdb
+C:\GIT\Compiler\Compiler\bin\Debug\log4net.dll
+C:\GIT\Compiler\Compiler\bin\Debug\log4net.xml
