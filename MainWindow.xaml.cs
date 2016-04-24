@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Compiler
 {
@@ -28,6 +29,9 @@ namespace Compiler
 
         //Processing elements
         Tokenizer _tokenizer;
+        Parser _parser;
+
+        private FileInfo jackProgram;
 
         public MainWindow()
         {
@@ -46,13 +50,49 @@ namespace Compiler
             ofd.Filter = "Jack Files | *.jack";
             if (ofd.ShowDialog() == true)
             {
+                jackProgram = new FileInfo(ofd.FileName);
                 JackFile_TextBox.Text = File.ReadAllText(ofd.FileName);
             }
+        }
+
+        private void SaveTokens_Click(object sender, RoutedEventArgs e)
+        {
+            string tokenOutput = jackProgram.FullName.Substring(
+                0,
+                jackProgram.FullName.Length-5)+"T_.xml";
+
+            _tokenizer.SaveToXML(tokenOutput);
         }
 
         private void Tokenize_Click(object sender, RoutedEventArgs e)
         {
             _tokenizer.Process(JackFile_TextBox.Text);
+            Token_TextBox.Text = _tokenizer.FormattedTokenString();
+        }
+
+        private void Parse_Click(object sender, RoutedEventArgs e)
+        {
+            _parser = new Parser();
+            _parser.TransferTokens(_tokenizer._output);
+            _parser.Parse();
+            string tokenOutput = jackProgram.FullName.Substring(
+                0,
+                jackProgram.FullName.Length - 5) + "_.xml";
+            _parser.SaveToXML(tokenOutput);
+
+            Parsed_TextBox.Text = FormatXML(_parser.GetXML());
+        }
+
+        private string FormatXML(string xml)
+        {
+            //http://stackoverflow.com/questions/1702893/display-xml-in-a-wpf-textbox
+            var doc = new XmlDocument();
+            doc.LoadXml(xml);
+            var stringBuilder = new StringBuilder();
+            var xmlWriterSettings = new XmlWriterSettings
+            { Indent = true, OmitXmlDeclaration = true };
+            doc.Save(XmlWriter.Create(stringBuilder, xmlWriterSettings));
+            return stringBuilder.ToString();
         }
     }
 }

@@ -5,33 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Compiler"
         mc:Ignorable="d"
-        Title="Compiler" Height="376.923" Width="525" WindowStartupLocation="CenterScreen">
+        Title="Compiler" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu Margin="0" VerticalAlignment="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open..." Click="OpenFile_Click"/>
-                <MenuItem Header="_New..."/>
+                <!--<MenuItem Header="_New..."/>-->
+                <MenuItem Header="_Save..." Click="SaveTokens_Click"/>
                 <Separator/>
                 <MenuItem Header="Exit"/>
             </MenuItem>
             <MenuItem Header="_Compile">
                 <MenuItem Header="_Tokenize" Click="Tokenize_Click"/>
+                <MenuItem Header="_Parse" Click="Parse_Click"/>
             </MenuItem>
         </Menu>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="298" Margin="0,26,0,0" VerticalAlignment="Top" Width="517">
+        <TabControl x:Name="tabControl" Margin="0,26,0,0" Height="546">
             <TabItem Header="Current File">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="JackFile_TextBox" TextWrapping="Wrap" Text="TextBox"/>
+                    <TextBox x:Name="JackFile_TextBox" TextWrapping="Wrap" Text="" IsReadOnly="True" Background="Black" Foreground="#FF37DA07"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tokenizer Results">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="Token_TextBox" TextWrapping="Wrap" Text="" IsReadOnly="True" Background="Black" Foreground="#FF18ACE4"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Parser Results">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="Parsed_TextBox" TextWrapping="Wrap" Text="" IsReadOnly="True" Background="#FF5B5B5B" Foreground="#FF18ACE4" BorderBrush="#FFA3B43A"/>
+                </Grid>
             </TabItem>
         </TabControl>
-        <StatusBar HorizontalAlignment="Left" Height="20" Margin="0,324,0,0" VerticalAlignment="Top" Width="517">
+        <StatusBar HorizontalAlignment="Left" Height="20" Margin="0,548,0,0" VerticalAlignment="Top" Width="800">
             <Label x:Name="StatusLabel" Content="Label" Width="150"/>
         </StatusBar>
     </Grid>
